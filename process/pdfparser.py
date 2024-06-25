@@ -4,7 +4,7 @@ from collections import defaultdict
 import sys
 import os
 import re
-import fitz
+# import fitz #需要python3.10以上
 from nltk.tokenize import sent_tokenize
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))

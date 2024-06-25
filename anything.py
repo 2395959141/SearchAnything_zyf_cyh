@@ -1,11 +1,18 @@
 import os
+
+os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
+
 from sentence_transformers import SentenceTransformer
+# from modelscope import snapshot_download, AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModel
+
 
 from config import DATA_DIR, DB_PATH, TEXT_EMBEDDING_MODELS, IMAGE_EMBEDDING_MODELS
 from database import Text_DB, Image_DB
 from utils import encode_text, encode_image, list_files
 from process import process_file
 from index import SemanticIndex
+
 
 
 class Anything(object):
@@ -43,9 +50,12 @@ class Anything(object):
             if model_name in TEXT_EMBEDDING_MODELS:
                 print("Adding text embedding model")
                 models["text"] = SentenceTransformer(model_name)
+                #models["text"] = AutoModel.from_pretrained(model_name)
+
             elif model_name in IMAGE_EMBEDDING_MODELS:
                 print("Adding image embedding model")
                 models["image"] = SentenceTransformer(model_name)
+                #models["image"] = AutoModel.from_pretrained(model_name)
             else:
                 raise ValueError("Model name not supported.")
         

@@ -12,6 +12,8 @@ from config import IMAGE_TYPES
 
 import nltk
 nltk.download("punkt")
+#import nltk
+#nltk.data.path.append('/home/cyh/nltk_data/nltk_data')
 
 
 parsers: List[BaseParser] = [PDFParser, WordParser, PPTXParser, MDParser, TXTParser, ImgParser]
