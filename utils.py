@@ -9,14 +9,14 @@ import numpy as np
 from config import __version__, TEXT_TYPES, IMAGE_TYPES
 
 
-def check_for_updates():
-    response = requests.get(f"https://github.com/Immortalise/Anything/releases/latest")
-    latest_version = re.search(r"releases/tag/v([\d.]+)", response.url).group(1)
+# def check_for_updates():
+#     response = requests.get(f"https://github.com/Immortalise/Anything/releases/latest")
+#     latest_version = re.search(r"releases/tag/v([\d.]+)", response.url).group(1)
   
-    if latest_version != __version__:
-        print(f"Update available!\nCurrent version: {__version__}\nLatest version: {latest_version}\nPlease visit https://github.com/{user}/{repo}/releases/latest to get the latest version.")
-    else:
-        print("You are using the latest version.")
+#     if latest_version != __version__:
+#         print(f"Update available!\nCurrent version: {__version__}\nLatest version: {latest_version}\nPlease visit https://github.com/{user}/{repo}/releases/latest to get the latest version.")
+#     else:
+#         print("You are using the latest version.")
 
   
 def update_and_restart():
