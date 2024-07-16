@@ -4,6 +4,8 @@ from collections import defaultdict
 import sys
 import os
 import re
+import fitz  # This imports the PyMuPDF library
+
 # import fitz #需要python3.10以上
 from nltk.tokenize import sent_tokenize
 
@@ -52,7 +54,7 @@ class PDFParser(BaseParser):
         pdf_doc: fitz.Document = fitz.open(self.file_path)
         
         raw_text: str = ""
-        page_text: List(int, str) = []
+        page_text: List[int, str] = []
         for pageno, page in enumerate(pdf_doc):
             page: fitz.Page
             raw_text = page.get_text("text")

@@ -10,10 +10,20 @@ from .imgparser import ImgParser
 
 from config import IMAGE_TYPES
 
+import os 
 import nltk
-nltk.download("punkt")
+os.environ['nltk_data'] =  '/home/cyh/nltk_data/packages/tokenizers/punkt/PY3/english.pickle'
+nltk.data.path.append("/home/cyh/nltk_data")
+#nltk.download("punkt")
+
+
+# import nltk
+# punkt_path = "/home/cyh/nltk_data/packages/tokenizers/punkt/PY3/english.pickle"
+# tokenizer = nltk.data.load(punkt_path, format='raw')
+
+#nltk.download("punkt")
 #import nltk
-#nltk.data.path.append('/home/cyh/nltk_data/nltk_data')
+#nltk.data.path.append("/home/cyh/nltk_data/nltk_data")
 
 
 parsers: List[BaseParser] = [PDFParser, WordParser, PPTXParser, MDParser, TXTParser, ImgParser]

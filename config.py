@@ -26,5 +26,6 @@ TEXT_EMBEDDING_MODELS = [
 ]
 
 IMAGE_EMBEDDING_MODELS = [
-    "clip-ViT-B-32",
+    "damo/multi-modal_clip-vit-base-patch16_zh",
+    "clip-ViT-B-32"
 ]

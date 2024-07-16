@@ -5,7 +5,7 @@ os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 from sentence_transformers import SentenceTransformer
 # from modelscope import snapshot_download, AutoTokenizer, AutoModelForCausalLM
 from transformers import AutoTokenizer, AutoModel
-
+from modelscope.models import Model
 
 from config import DATA_DIR, DB_PATH, TEXT_EMBEDDING_MODELS, IMAGE_EMBEDDING_MODELS
 from database import Text_DB, Image_DB
@@ -19,7 +19,7 @@ class Anything(object):
     def __init__(self, models=None):
 
         if models is None:
-            default_models = ["sentence-transformers/all-mpnet-base-v2", "clip-ViT-B-32"]
+            default_models = ["sentence-transformers/all-mpnet-base-v2", "damo/multi-modal_clip-vit-base-patch16_zh"]
 
         if not os.path.exists(DATA_DIR):
             os.makedirs(DATA_DIR)  
@@ -54,8 +54,8 @@ class Anything(object):
 
             elif model_name in IMAGE_EMBEDDING_MODELS:
                 print("Adding image embedding model")
-                models["image"] = SentenceTransformer(model_name)
-                #models["image"] = AutoModel.from_pretrained(model_name)
+                #models["image"] = SentenceTransformer(model_name)
+                models["image"] = Model.from_pretrained(model_name)
             else:
                 raise ValueError("Model name not supported.")
         
