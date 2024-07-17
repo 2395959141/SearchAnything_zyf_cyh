@@ -101,7 +101,9 @@ def list_files(root_path):
 
 def encode_text(model, input_text):
     embedding = model.encode(input_text)
-
+    #tokenizer = AutoTokenizer.from_pretrained("OFA-Sys/chinese-clip-vit-base-patch16")
+    #inputs = tokenizer(input_text)
+    #embedding = model.get_text_features(**inputs)
     embedding_l2 = np.linalg.norm(embedding)
     embedding = embedding / embedding_l2
 

@@ -1,10 +1,15 @@
 import os
 
-os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
+os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"  #使用HuggingFace镜像站
+
+
+# import transformers
 
 from sentence_transformers import SentenceTransformer
 # from modelscope import snapshot_download, AutoTokenizer, AutoModelForCausalLM
-from transformers import AutoTokenizer, AutoModel
+
+from transformers import ChineseCLIPProcessor, ChineseCLIPModel,AutoTokenizer, AutoModel
+
 from modelscope.models import Model
 
 from config import DATA_DIR, DB_PATH, TEXT_EMBEDDING_MODELS, IMAGE_EMBEDDING_MODELS
@@ -19,6 +24,7 @@ class Anything(object):
     def __init__(self, models=None):
 
         if models is None:
+            #default_models = ["OFA-Sys/chinese-clip-vit-base-patch16", "OFA-Sys/chinese-clip-vit-base-patch16"]
             default_models = ["sentence-transformers/all-mpnet-base-v2", "damo/multi-modal_clip-vit-base-patch16_zh"]
 
         if not os.path.exists(DATA_DIR):
