@@ -25,7 +25,8 @@ class Anything(object):
 
         if models is None:
             #default_models = ["OFA-Sys/chinese-clip-vit-base-patch16", "OFA-Sys/chinese-clip-vit-base-patch16"]
-            default_models = ["sentence-transformers/all-mpnet-base-v2", "damo/multi-modal_clip-vit-base-patch16_zh"]
+            # default_models = ["sentence-transformers/all-mpnet-base-v2", "clip-ViT-B-32"]
+            default_models = ["uer/sbert-base-chinese-nli", "clip-ViT-B-32"]
 
         if not os.path.exists(DATA_DIR):
             os.makedirs(DATA_DIR)  
@@ -60,8 +61,8 @@ class Anything(object):
 
             elif model_name in IMAGE_EMBEDDING_MODELS:
                 print("Adding image embedding model")
-                #models["image"] = SentenceTransformer(model_name)
-                models["image"] = Model.from_pretrained(model_name)
+                models["image"] = SentenceTransformer(model_name)
+                #models["image"] = Model.from_pretrained(model_name)
             else:
                 raise ValueError("Model name not supported.")
         

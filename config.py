@@ -22,10 +22,11 @@ IMAGE_TYPES = ["png", "jpg", "jpeg"]
 
 TEXT_EMBEDDING_MODELS = [
     "sentence-transformers/all-mpnet-base-v2",
-    "sentence-transformers/all-MiniLM-L6-v2",
+    "uer/sbert-base-chinese-nli",
+    "sentence-transformers/all-MiniLM-L6-v2"
 ]
 
 IMAGE_EMBEDDING_MODELS = [
-    "damo/multi-modal_clip-vit-base-patch16_zh",
+    # "damo/multi-modal_clip-vit-base-patch16_zh",
     "clip-ViT-B-32"
 ]
